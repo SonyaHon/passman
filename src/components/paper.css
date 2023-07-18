@@ -1,0 +1,17 @@
+.paper {
+  border-radius: 6px;
+  background-color: var(--color-neutral);
+  box-shadow: var(--shadow-base);
+  transition: all .2s ease;
+}
+
+.paper-hoverable {
+  cursor: pointer;
+}
+.paper-hoverable:hover {
+  box-shadow: var(--shadow-raised);
+}
+
+.paper-elevated {
+  box-shadow: var(--shadow-raised);
+}

@@ -1,0 +1,51 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.app-content {
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+.entries {
+  height: calc(100vh - 12px - 64px);
+  padding-left: 16px;
+  padding-bottom: 40vh;
+  overflow-x: visible;
+  overflow-y: scroll;
+  position: relative;
+  width: calc(33vw + 32px + 16px);
+  margin-left: -16px;
+}
+
+.entries::before {
+  opacity: var(--scroll-gurad-visible);
+  position: fixed;
+  content: " ";
+  height: 40px;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  width: calc(33vw + 32px + 16px);
+  left: calc(17vw - 16px);
+}
+
+.entries::after {
+  position: fixed;
+  content: " ";
+  bottom: 0;
+  height: 40px;
+  width: calc(33vw + 32px + 16px);
+  background: linear-gradient(
+    0deg,
+    var(--color-primary) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  left: calc(17vw - 16px);
+}

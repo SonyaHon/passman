@@ -1,0 +1,52 @@
+.main-search {
+  width: 100vw;
+  height: 64px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-search > div:first-of-type {
+  width: calc(66vw - 30px - 8px);
+  margin-right: 8px;
+  padding: 4px 6px;
+}
+
+.add-button-wrapper {
+  width: 30px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+
+.add-button > svg {
+  width: 12px;
+  height: 12px;
+  color: var(--color-accent);
+}
+
+.search-content {
+  display: flex;
+  align-items: center;
+}
+
+.search-content > svg {
+  width: 12px;
+  height: 12px;
+  color: #828282;
+}
+
+.search-content > input {
+  border: none;
+  outline: none;
+  font-size: 12px;
+  line-height: 16px;
+  width: 100%;
+}

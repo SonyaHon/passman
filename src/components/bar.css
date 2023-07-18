@@ -1,0 +1,44 @@
+.bar {
+  width: 17vw;
+  display: flex;
+  flex-direction: column;
+  padding-left: 24px;
+  padding-right: 24px;
+  height: 100%;
+}
+
+.barlink {
+  display: flex;
+  align-items: center;
+  padding-bottom: 6px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  border-bottom: 1px solid transparent;
+  transition: all .2s ease;
+}
+
+.barlink-selected {
+  border-bottom: 1px solid var(--color-accent);
+}
+
+.barlink > svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  color: black;
+  transition: all .2s ease;
+}
+
+.barlink-selected > svg {
+  color: var(--color-accent);
+}
+
+.barlink > span {
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.barlink:last-of-type {
+  margin-top: 24px;
+}
