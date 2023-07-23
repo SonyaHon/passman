@@ -2,7 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use std::sync::Mutex;
-use tauri::State;
+use tauri::{Error, State};
 
 pub struct AppState {
     db_connection: Mutex<sqlite::Connection>,
@@ -31,14 +31,23 @@ pub struct Entry {
 #[tauri::command]
 fn fetch_card(id: &str) {}
 
-
 pub struct CreateEntryData {
+    id: String,
     title: String,
 }
 
 #[tauri::command]
-fn create_entry(data: CreateEntryData) {
-    
+fn create_entry(app_state: &AppState, entry: &CreateEntryData) -> Result<(), Error> {
+    app_state
+        .db_connection
+        .lock()
+        .unwrap()
+        .execute(format!(
+            "INSERT INTO entries VALUES ({}, {})",
+            entry.id, entry.title,
+        ))
+        .unwrap();
+    Ok(())
 }
 
 pub fn setup_tables(connection: &sqlite::Connection) {

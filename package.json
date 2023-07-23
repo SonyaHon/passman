@@ -12,8 +12,8 @@
   "dependencies": {
     "@tauri-apps/api": "^1.4.0",
     "jotai": "^2.2.2",
-    "moment": "^2.29.4",
     "nanoid": "^4.0.2",
+    "primereact": "^9.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
