@@ -13,6 +13,7 @@
     "@tauri-apps/api": "^1.4.0",
     "jotai": "^2.2.2",
     "nanoid": "^4.0.2",
+    "primeicons": "^6.0.1",
     "primereact": "^9.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
