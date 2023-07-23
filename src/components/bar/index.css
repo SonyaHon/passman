@@ -1,0 +1,34 @@
+.bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.bar > div {
+  width: 33vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.bar > div > input {
+  padding-left: 2rem !important;
+  padding-right: 4rem !important;
+  width: 100%;
+}
+
+.bar > div > svg {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 0.5rem;
+}
+
+.bar .bar-search-kbd {
+  position: absolute;
+  right: 0.5rem;
+  font-size: 10px;
+}
+

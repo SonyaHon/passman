@@ -1,0 +1,20 @@
+.keyboard-shortcut {
+  background: var(--surface-50);
+  border-radius: 4px;
+  max-width: contain;
+  widht: contain;
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+  color: var(--surface-400);
+}
+
+.keyboard-shortcut > span {
+  text-transform: capitalize;
+  margin-right: 2px;
+  margin-left: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--surface-800);
+}
