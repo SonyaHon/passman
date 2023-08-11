@@ -1,0 +1,66 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.field-title {
+  margin-bottom: 8px;
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field-content {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.field-content > .drag-handle,
+.field-content > .drag-handle > svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 1rem;
+  cursor: grab;
+}
+
+.eyeButton {
+  cursor: pointer;
+  color: white;
+  transition: color 0.1s ease-in-out;
+  position: absolute;
+  right: 1rem;
+}
+
+.eyeButton:hover {
+  color: var(--primary-color);
+}
+
+.eyeButton > svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.plain-field {
+}
+
+.password-field {
+  padding-right: 2.5rem;
+  position: relative;
+}
+
+.secure-field {
+}
+
+.danger-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

@@ -1,0 +1,40 @@
+.edit-dialog .p-dialog-header-icons {
+  display: none;
+}
+
+.edit-dialog .header {
+  display: flex;
+  align-items: center;
+}
+
+.header .title {
+  margin-left: 1rem;
+  margin-right: auto;
+}
+
+.field {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.field-label {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-left: calc(1rem + 12px);
+}
+
+.field-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.drag-handle {
+  height: 12px;
+  width: 12px;
+  margin-right: 1rem;
+}
+
+.field-content input {
+  width: 100%;
+}

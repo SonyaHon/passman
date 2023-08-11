@@ -1,10 +1,12 @@
 import React, { KeyboardEvent, useEffect } from "react";
+
+import { Keybind } from "../../keybind";
+
 import "./index.css";
 
 export interface KeyboardShortcutProps {
-  shortcut: string;
+  keybind: Keybind;
   className?: string;
-  onPress: () => void | Promise<void>;
 }
 
 const specialSymbols = {
@@ -24,35 +26,12 @@ const specialSymbols = {
   ),
 };
 
-const propMap = {
-  cmd: "metaKey",
-};
-
 export const KeyboardShortcut: React.FC<KeyboardShortcutProps> = ({
-  shortcut,
+  keybind,
   className,
-  onPress,
 }) => {
-  const items = shortcut.split("+");
+  const items = keybind.getString().split("+");
   const elements = [];
-
-  useEffect(() => {
-    const clb = (event: KeyboardEvent) => {
-      const [meta, key] = items;
-      if (
-        // @ts-ignore
-        event[propMap[meta]] &&
-        event.key.toUpperCase() === key.toUpperCase()
-      ) {
-        onPress();
-      }
-    };
-    window.addEventListener("keypress", clb);
-
-    return () => {
-      window.removeEventListener("keypress", clb);
-    };
-  }, [shortcut]);
 
   for (let i = 0; i < items.length; ++i) {
     // @ts-ignore

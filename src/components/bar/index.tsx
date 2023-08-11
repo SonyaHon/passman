@@ -1,21 +1,37 @@
 import { InputText } from "primereact/inputtext";
-import { $mainSearch } from "../../store";
+import { Button } from "primereact/button";
+import { Tooltip } from "primereact/tooltip";
+
+import { useRef } from "react";
+import { useAtom, useAtomValue } from "jotai";
+
+import { $editingEntry, $mainSearch, useEdit } from "../../store";
+import { KeyboardShortcut } from "../kbd-shortcut";
 
 import "./index.css";
-import { KeyboardShortcut } from "../kbd-shortcut";
-import { useRef } from "react";
-import { useAtom } from "jotai";
+import { KeybindRegistry } from "../../keybind-registry";
+import { CreateNewDialog } from "../create-new-dialog";
+import { Entry } from "../../entry";
 
 export const Bar = () => {
   const inputRef = useRef<HTMLInputElement>(null);
-  function focusSearchField() {
+  const focusSearchField = () => {
     if (inputRef.current) {
       inputRef.current.focus();
       inputRef.current.select();
     }
-  }
+  };
+
+  const editedEntry = useAtomValue($editingEntry);
+  const startEditing = useEdit();
+  const createNewEntry = () => {
+    startEditing(Entry.Empty());
+  };
 
   const [searchText, setSearchText] = useAtom($mainSearch);
+
+  const keybindSearch = KeybindRegistry.register("cmd+k", focusSearchField);
+  const keybindAddNew = KeybindRegistry.register("cmd+n", createNewEntry);
 
   return (
     <div className="bar">
@@ -45,12 +61,20 @@ export const Bar = () => {
             setSearchText(e.target.value);
           }}
         />
-        <KeyboardShortcut
-          onPress={focusSearchField}
-          shortcut="cmd+k"
-          className="bar-search-kbd"
-        />
+        <KeyboardShortcut keybind={keybindSearch} className="bar-search-kbd" />
       </div>
+      <Tooltip target="#btn-create-new" showDelay={1000}>
+        <KeyboardShortcut keybind={keybindAddNew} />
+      </Tooltip>
+      <Button
+        id="btn-create-new"
+        outlined
+        size="small"
+        severity="secondary"
+        label="+"
+        onClick={createNewEntry}
+      />
+      { editedEntry && <CreateNewDialog /> }
     </div>
   );
 };
